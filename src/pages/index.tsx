@@ -5,7 +5,7 @@ import styles from "../styles/Home.module.css";
 import { useSignMessage } from "wagmi";
 
 const Home: NextPage = () => {
-  const { signMessage } = useSignMessage();
+  const { signMessageAsync } = useSignMessage();
   return (
     <div className={styles.container}>
       <Head>
@@ -19,7 +19,9 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <ConnectButton />
-        <button onClick={() => signMessage("message")}>Sign</button>
+        <button onClick={() => signMessageAsync({ message: "message" })}>
+          Sign
+        </button>
 
         <h1 className={styles.title}>
           Welcome to <a href="">RainbowKit</a> + <a href="">wagmi</a> +{" "}
